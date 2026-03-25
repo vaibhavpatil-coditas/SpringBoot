@@ -43,6 +43,7 @@ public class StaffDao {
     public void insertOneStaffMember(Staff staff) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
+        Transaction transaction1 = session.beginTransaction();
         try{
             session.persist(staff);
             transaction.commit();
@@ -107,6 +108,7 @@ public class StaffDao {
             transaction.commit();
         }catch (Exception e){
             //handling code
+            transaction.rollback();
         }finally {
             session.close();
         }

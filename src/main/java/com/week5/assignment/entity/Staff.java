@@ -1,13 +1,15 @@
 package com.week5.assignment.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "staff")
 public class Staff {
     @Id
+    @Column(name = "staffid")
     private int staffid;
     private String name;
     private String profile;
